@@ -14,16 +14,19 @@
 - 이번 프로젝트 완성 이후, 빠른 개선을 위해 모델 평가(evaluation) 과정을 도입. 효율적인 평가를 위해 모델의 정보를 기록하는 과정이 필요.
 
 ## 해결 과정
-- LLM 파이프라인 개선
+- LLM 파이프라인 구성:
     - 기존 코드는 커스텀 함수들을 Databricks 환경 내에서 DAG 형태로 실행하도록 구현돼 있었음. 이는 코드 구조를 복잡하게 만듬.
     - langchain API를 사용해 시스템 프롬프트, LLM 모델, 벡터 데이터베이스를 연결하는 과정을 적절히 추상화하고, 최대한 일관성 있도록 구현.
-- LLM 모델/임베딩 모델/벡터 데이터베이스 교체: 성능 향상을 위해 오픈 소스에서 변경.
-- Chat UX 개선:
+- LLM 모델/임베딩 모델/벡터 데이터베이스 교체:
+    - 성능 향상을 위해 오픈 소스에서 변경.
+- Chat UI 개발:
     - 기존에는 web app 형태로 구현되어 있었음. 하지만 새로운 쓰레드를 구성할 때마다 불편한 점이 있었고, 
     - 사내 구성원들이 가장 편하게 접근할 수 있는 slack 챗봇으로 변경.
     - 코드 구조가 더 단순해지고 권한 관리가 더 편해지는 등 개발 측면에서의 이점도 얻을 수 있었음.
-- LLM Observability 확보:
+- LLM Observability 확보 (tracing):
     - 입력된 질문으로부터 답변과 그 출처가 나오기까지 graph 형태의 파이프라인을 통과하기 때문에 각 단계 별 정보를 기록하는 과정이 필요.
+    - 각 단계 별로 성능을 확인하거나 디버깅을 더 효율적으로 할 수 있게 됨.
+    - 이를 위한 도구는 langsmith, datadog, helicone 등의 선택지가 있으나, 파이프라인을 langchain을 통해 구현했기 때문에 observability 역시 빠르게 구현하기 위해 같은 생태계 내의 langsmith 를 선택.
 - Evaluation 프로세스 도입: 
     - 위키 관리자와 함께 모델의 성능을 평가할 수 있는 ground truth 데이터셋을 준비했음. 
     - 이 데이터셋 기반으로 offline 방식의 모델 평가 파이프라인 구축. 
@@ -31,7 +34,15 @@
 
 ## 기술 스택 소개
 - langchain: 질문에서 답변까지 연결하는 pipeline을 일관성 있게 구현.
-- OpenAI API: chat completion 모델
+- OpenAI: chat completion / 임베딩 모델
 - OpenSearch: 벡터 서치 엔진
-- langsmith: LLM observability 확보. 
+- langsmith: LLM observability 확보.
 - mlflow: 모델 성능 평가(evaluation)
+
+## 프로젝트 내 주요 역할 (작성 중)
+### Evaluation 프로세스 도입
+- 데이터셋 구축
+
+### RAG evaluation 구현
+- offline 방식으로 출처를 잘 만들었는지 검증하도록
+- 지표 공부 및 적용
