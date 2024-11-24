@@ -1,10 +1,10 @@
 # Chanhee Lee
 
-## Projects
-### Devsisters
+# Projects
+## Devsisters
 - [게임 세계관 위키 LLM 프로젝트](./proj_cookiewiki.md)
 
-## Articles
+# Articles
 medium 에 조금 더 널리 공개하기 위한 글들을 작성하고 있습니다. ([medium profile](https://medium.com/@nonmoon))
 
 - [streamlit으로 SQL 연습 환경 만들기 (작성일: 2024-08-18)](https://nonmoon.medium.com/streamlit%EC%9C%BC%EB%A1%9C-sql-%EC%97%B0%EC%8A%B5-%ED%99%98%EA%B2%BD-%EB%A7%8C%EB%93%A4%EA%B8%B0-8cd4ee44f858)
