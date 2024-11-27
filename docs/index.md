@@ -35,7 +35,7 @@ CAE(Computer Aided Engineering) 엔지니어로서 커리어를 시작했습니�
 
 ## 🎯 Projects
 ### in Devsisters
-- [마케팅 LTV 예측 프로젝트](./proj_ltv.md)
+- [마케팅 LTV 예측 프로젝트(작성 중)](./proj_ltv.md)
 - 강화학습 기반 퍼즐봇 프로젝트
 - LLM 기반 인게임 번역 프로젝트
 - 생성형 이미지 TF 프로젝트
