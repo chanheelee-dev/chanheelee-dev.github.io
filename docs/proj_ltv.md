@@ -12,13 +12,12 @@
 ## 프로젝트 목표
 - 마케터가 캠페인의 장기 성과를 예측하는 데 도움이 되는 데이터를 제공한다. 이를 위해 초기 데이터를 활용해 광고 비용 대비 회수율(ROAS)이나 평생 가치(LTV)를 예측한다.
 
-
 ## 프로젝트 변천사
 LTV 프로젝트는 제가 이어받기 전인 2017년부터 연구가 시작돼서 장장 7년이 넘게 지속된 프로젝트인만큼, 프로젝트 나름의 역사를 가지고 있습니다. 제가 프로젝트에 참여하기 시작한 2021년부터, 프로젝트가 마무리 된 2024년까지의 변천사를 큼직한 변화를 기준으로 '스테이지'로 구분해 설명해보겠습니다.
 
 | stage | 기간 | 한 줄 요약 | 모델링 | 서빙 방식 | 데이터/훈련/서빙 파이프라인 |
 | --- | --- | --- | --- | --- | --- |
-| 1 | 2021 | 과거 레거시 유지보수 | Bayesian (MCMC) | dashboard / jupyter notebook | 서빙: airflow |
+| 1 | 2021 | 기존 서비스 유지보수 | Bayesian (MCMC) | dashboard / jupyter notebook | 서빙: airflow |
 | 2 | 2022 | 모델 성능 개선 | MCMC + linear regression | dashboard / jupyter notebook | 서빙: airflow |
 | 3 | 2023 상반기 | UX + 속도 개선 | 위와 동일 | AWS Sagemaker + Dash web | 데이터: AWS lambda, 서빙: AWS Sagemaker + lambda |
 | 4 | 2023 하반기 | 모델링 방법론 변경 | Deep learning (MLP, TiDE) | dashboard | 데이터: databricks, 훈련: mlflow, 서빙: databricks |
@@ -37,10 +36,7 @@ LTV 예측 프로젝트는 제가 입사한 2021년 이전부터 오랫동안 �
     - 파라미터를 interactive 하게 조정하면서 모델링 코드를 실행할 수 있는 노트북을 제공
     - 마케터가 직접 노트북을 실행한 뒤 결과를 표나 그래프로 확인할 수 있고, 엑셀로 export 할 수도 있음
 
-이 과정에서 제가 참여한 부분은 아래와 같습니다.
-- airflow 배치 잡 장애 대응 및 유지보수
-- jupyter notebook 유지보수
-- 마케터 대상 jupyter notebook 코드 설명 및 디버깅 지원
+더 자세한 내용은 [여기](./proj_ltv_stg_1.md)에 정리했습니다.
 
 ### stage 2
 (작성 중)
