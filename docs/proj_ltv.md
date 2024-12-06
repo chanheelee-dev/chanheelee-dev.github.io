@@ -5,7 +5,7 @@
 효율적인 마케팅 예산 집행을 위해 캠페인 별 평생 가치(LTV)를 예측하는 프로젝트.
 
 ## 문제 상황
-- 마케팅은 '캠페인'이라는 단위로 예산을 집행함. 캠페인 별로 초반 3-7 일 동안의 퍼포먼스 데이터를 측정해, 장기적으로 '가망이 있는' 캠페인 위주로 예산을 빠르게 재집행함으로써 효율적으로 마케팅을 지속하는 것이 주 목표.
+- 마케팅은 '캠페인'이라는 단위로 예산을 집행함. 캠페인 별로 초반 3-7 일 동안의 퍼포먼스 데이터를 측정해, 장기적으로 **'가망이 있는'** 캠페인 위주로 예산을 빠르게 재집행함으로써 효율적으로 마케팅을 지속하는 것이 주 목표.
 - 초반 퍼포먼스로만 캠페인을 판단하는 것은 마케터 개인의 경험과 주관에 의존할 수 밖에 없기 때문에 안정적인 지표가 필요함.
 - 퍼포먼스 지표로 주로 활용하는 것은 광고 비용 대비 회수율(ROAS)이지만, 이 지표는 자연 유입된 유저를 대상으로 계산할 수 없음. LTV 값을 통해 ROAS를 계산하는 것도 가능하기 때문에 결국 LTV를 예측하는 것이 더 보편적으로 활용 가능.
 
@@ -18,14 +18,29 @@ LTV 프로젝트는 제가 이어받기 전인 2017년부터 연구가 시작돼
 
 | stage | 기간 | 한 줄 요약 | 모델링 | 서빙 방식 | 데이터/훈련/서빙 파이프라인 |
 | --- | --- | --- | --- | --- | --- |
-| 1 | 2021 | 과거 레거시 유지보수 | Bayesian (MCMC) | jupyter notebook / dashboard | 서빙: airflow |
-| 2 | 2022 | 모델 성능 개선 | MCMC + linear regression | jupyter notebook / dashboard | 서빙: airflow |
+| 1 | 2021 | 과거 레거시 유지보수 | Bayesian (MCMC) | dashboard / jupyter notebook | 서빙: airflow |
+| 2 | 2022 | 모델 성능 개선 | MCMC + linear regression | dashboard / jupyter notebook | 서빙: airflow |
 | 3 | 2023 상반기 | UX + 속도 개선 | 위와 동일 | AWS Sagemaker + Dash web | 데이터: AWS lambda, 서빙: AWS Sagemaker + lambda |
 | 4 | 2023 하반기 | 모델링 방법론 변경 | Deep learning (MLP, TiDE) | dashboard | 데이터: databricks, 훈련: mlflow, 서빙: databricks |
 | 5 | 2024 | 초기 수준의 MLOps 구축 | classical ML | mlflow model registry | 데이터: databricks, 훈련: mlflow, 서빙: mlflow |
 
 ### stage 1
-[(작성 중)](./proj_ltv_stage1.md)
+
+LTV 예측 프로젝트는 제가 입사한 2021년 이전부터 오랫동안 연구가 이어진 오래된 프로젝트로, 이미 LTV 예측값을 통해 마케터가 캠페인의 성과를 판단하는 프로세스가 어느 정도 정립된 상황이었습니다. 마케터는 두 가지 방식으로 LTV 예측값을 제공받았는데, 하나는 대시보드, 하나는 jupyter notebook 형태의 코드였습니다.
+
+1. 대시보드: 고정적으로 보는 분석
+    - 주기적으로 큰 단위의 LTV 를 확인하고자 하는 케이스
+    - 대시보드에 들어가는 파라미터 종류도 적고 파라미터 값의 cardinality 도 낮음
+    - 대시보드에 필요한 데이터는 매일 airflow 배치 잡을 통해 LTV DW (Data Warehouse) 에 적재
+2. jupyter notebook: 대시보드보다 좀더 세세한 분석
+    - 미세하게 파라미터 값을 조정해가며 캠페인 성과를 확인하고자 하는 케이스
+    - 파라미터를 interactive 하게 조정하면서 모델링 코드를 실행할 수 있는 노트북을 제공
+    - 마케터가 직접 노트북을 실행한 뒤 결과를 표나 그래프로 확인할 수 있고, 엑셀로 export 할 수도 있음
+
+이 과정에서 제가 참여한 부분은 아래와 같습니다.
+- airflow 배치 잡 장애 대응 및 유지보수
+- jupyter notebook 유지보수
+- 마케터 대상 jupyter notebook 코드 설명 및 디버깅 지원
 
 ### stage 2
 (작성 중)
@@ -38,3 +53,5 @@ LTV 프로젝트는 제가 이어받기 전인 2017년부터 연구가 시작돼
 
 ### stage 5
 (작성 중)
+
+## 모델링에 대해서
