@@ -54,7 +54,7 @@ LTV 예측 프로젝트는 제가 입사한 2021년 이전부터 오랫동안 �
 - 마케터 대상 jupyter notebook 활용법 가이드 및 트러블슈팅 지원
 - LTV 관련 ad-hoc 분석/시각화
 
-## 모델링 (multi-cohort BTYD 모델 + MCMC 시뮬레이션)
+## 모델링 (BTYD 모델 + MCMC 시뮬레이션)
 
 - 문제 설정: 한 코호트의 7일 간 평균 데이터를 바탕으로, 365일 간의 평균 LTV 예측
 - 모델링: BTYD (Buy Till You Die) 확률 모델 기반으로 MCMC 시뮬레이션 수행
