@@ -28,7 +28,7 @@ LTV 프로젝트는 제가 이어받기 전인 2017년부터 연구가 시작돼
 | 4 | 2023 하반기 | 모델링 방법론 변경 | Deep learning (MLP, TiDE) | dashboard | 데이터: databricks, 훈련: mlflow, 서빙: databricks |
 | 5 | 2024 | 초기 수준의 MLOps 구축 | classical ML | mlflow model registry | 데이터: databricks, 훈련: mlflow, 서빙: mlflow |
 
-### Stage 1
+### Stage 1: LTV 초기 모델
 
 LTV 예측 프로젝트는 제가 입사한 2021년 이전부터 오랫동안 연구가 이어진 오래된 프로젝트로, 이미 LTV 예측값을 통해 마케터가 캠페인의 성과를 판단하는 프로세스가 어느 정도 정립된 상황이었습니다. 마케터는 두 가지 방식으로 LTV 예측값을 제공받았는데, 하나는 대시보드, 하나는 jupyter notebook 형태의 코드였습니다.
 
@@ -36,7 +36,7 @@ LTV 예측 모델은 BTYD (Buy Till You Die) 확률 모델 기반으로 MCMC 시
 
 프로젝트에 대한 자세한 내용은 [여기 프로젝트 문서](./proj_ltv_stg_1.md)에, LTV 모델링 및 MCMC를 활용한 예측 방식에 대해서는 [별도의 모델링 설명 문서](./ltv_modeling_mcmc.md)에 정리했습니다.
 
-### Stage 2
+### Stage 2: LTV 모델 개선
 
 Stage 1에서의 LTV 모델은 특정 한 게임의 유저 패턴을 바탕으로 얻은 인사이트가 반영됐다보니, 다른 게임에 적용했을 때 오차가 있을 것으로 예상했습니다. 하지만, 예측하려는 타겟 기간 자체가 365일로 길었기 때문에 새로운 게임에 대한 LTV 모델 개선을 빠르게 진행하는 것은 어려웠습니다. 일종의 콜드 스타트 문제라고도 볼 수 있겠습니다.
 
@@ -48,14 +48,14 @@ Stage 1에서의 LTV 모델은 특정 한 게임의 유저 패턴을 바탕으�
 
 Linear regression 적용 이후에도 지속적으로 LTV 예측 오차를 추적했고, 만족할만한 오차 개선을 확인할 수 있었습니다.
 
-### Stage 3
+### Stage 3: LTV 웹앱 개발
 
 (작성 중)
 
-### Stage 4
+### Stage 4: 딥러닝 기반의 LTV 모델링
 
 (작성 중)
 
-### Stage 5
+### Stage 5: LTV MLOps
 
 (작성 중)
