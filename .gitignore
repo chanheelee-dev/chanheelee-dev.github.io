@@ -1,1 +1,5 @@
 /private
+
+# Jekyll
+docs/_site/
+docs/.jekyll-cache/

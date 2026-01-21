@@ -1,0 +1,11 @@
+theme: minima
+title: Chanhee's Dev Blog
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+kramdown:
+  math_engine: mathjax
