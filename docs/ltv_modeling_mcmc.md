@@ -42,7 +42,7 @@ $$
 S(t) = (1-\theta)^{t}
 $$
 
-어떤 고객의 life time이 $t$라는 뜻은, 유입일로부터 $t-1$일 이후까지는 생존했으나, $t$일 후에 이탈했다는 뜻입니다. 즉, 이탈율이 주어졌을 때 life time이 $t$일 확률 $P(T_i=t|\theta)$는 다음과 같이 shifted geometric 분포로 표현할 수 있습니다.
+어떤 고객의 life time이 $t$라는 뜻은, 유입일로부터 $t-1$일 이후까지는 생존했으나, $t$일 후에 이탈했다는 뜻입니다. 즉, 이탈율이 주어졌을 때 life time이 $t$일 확률 $P(T_i=t \mid \theta)$는 다음과 같이 shifted geometric 분포로 표현할 수 있습니다.
 
 $$
 \begin{align*}
@@ -75,7 +75,7 @@ $$
 
 이제 우리가 알고 싶은 것은 데이터 $D$와 제일 잘 맞는 posterior 분포를 추정하는 것입니다. 이를 위해 MCMC(Markov Chain Monte Carlo)라는 베이지안 시뮬레이션 방식을 활용했습니다. MCMC는 확률 분포 파라미터를 조금씩 바꿔가면서 posterior 분포를 수치적으로 근사하는 방식입니다.
 
-Posterior 분포를 구하려면 prior 분포와 likelihood 함수를, 확률 변수를 제외하고 그 형태를 알아야 합니다. 이 중에서 likelihood는 데이터 측정을 통해 고정된 함수로 만들어냈습니다. 남은 것은 $\theta$의 prior 분포의 하이퍼파라미터인 $\alpha, \beta$ 입니다. 이 하이퍼파라미터들 역시 어떤 확률 분포를 따른다고 가정하는데, 이를 hyperprior 분포라고 부릅니다. 아래에서는 $P(\alpha, \beta)$라고 표현했습니다. 최종적으로 우리가 구하고 싶은 posterior는 결국 $P(\alpha, \beta|D)$가 됩니다.
+Posterior 분포를 구하려면 prior 분포와 likelihood 함수를, 확률 변수를 제외하고 그 형태를 알아야 합니다. 이 중에서 likelihood는 데이터 측정을 통해 고정된 함수로 만들어냈습니다. 남은 것은 $\theta$의 prior 분포의 하이퍼파라미터인 $\alpha, \beta$ 입니다. 이 하이퍼파라미터들 역시 어떤 확률 분포를 따른다고 가정하는데, 이를 hyperprior 분포라고 부릅니다. 아래에서는 $P(\alpha, \beta)$라고 표현했습니다. 최종적으로 우리가 구하고 싶은 posterior는 결국 $P(\alpha, \beta \mid D)$가 됩니다.
 
 $$
 P(\alpha, \beta | D) \propto \int L(\theta;D) \cdot P(\theta|\alpha, \beta) d\theta \cdot P(\alpha, \beta)
