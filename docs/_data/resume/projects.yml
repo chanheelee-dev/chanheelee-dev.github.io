@@ -1,0 +1,35 @@
+- title: 마케팅 LTV 예측
+  url: /proj_ltv/
+  period: "2021–2024"
+  summary: "MCMC → XGBoost 모델링, MLOps 파이프라인, AWS SageMaker 배포"
+  tags: [ml, mlops, ds]
+
+- title: LLM 기반 인게임 번역 툴
+  url: /proj_llm_translation/
+  period: "2023–2025"
+  summary: "LangChain, RAG, OpenSearch 기반 게임 텍스트 번역 자동화, 라이브 서비스 적용"
+  tags: [llm, genai, rag]
+
+- title: 게임 세계관 RAG 챗봇
+  url: /proj_cookiewiki/
+  period: "2024–"
+  summary: "LangChain, FAISS, LangSmith 기반 지식 챗봇, LLM 평가 체계 구축"
+  tags: [llm, genai, rag]
+
+- title: 강화학습 기반 퍼즐봇
+  url: ""
+  period: "2022–2023"
+  summary: "쿠키런 퍼즐 RL 에이전트 — 게임 환경 모델링 및 정책 학습"
+  tags: [ml, research]
+
+- title: 앱 크래시 영향 분석
+  url: ""
+  period: "2023"
+  summary: "앱 크래시가 유저 리텐션에 미치는 영향을 인과 추론 방법론으로 분석"
+  tags: [ds, statistics]
+
+- title: 생성형 이미지 Task Force
+  url: ""
+  period: "2023"
+  summary: "게임 내 이미지 생성 파이프라인 프로토타입 개발"
+  tags: [genai, research]

@@ -1,0 +1,26 @@
+{% assign target_tags = include.target_tags %}
+<section class="resume-section">
+  <h2>기술 스택</h2>
+  <div class="skills-list">
+  {% for group in site.data.resume.skills %}
+    {% assign show = false %}
+    {% if target_tags == nil or target_tags == empty %}
+      {% assign show = true %}
+    {% else %}
+      {% for tag in group.tags %}
+        {% if target_tags contains tag %}{% assign show = true %}{% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if show %}
+    <div class="skill-group">
+      <span class="skill-label">{{ group.category }}</span>
+      <span class="skill-tags">
+        {% for item in group.items %}
+        <span class="skill-tag">{{ item }}</span>
+        {% endfor %}
+      </span>
+    </div>
+    {% endif %}
+  {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,7 @@
+default: "데이터와 수치를 기반으로 문제를 정의하고 해결하는 Data Scientist / ML Engineer입니다. 마케팅 LTV 예측, LLM 번역 자동화, RAG 챗봇 등 다양한 AI 프로젝트를 서비스화한 경험이 있으며, 분석부터 모델링, MLOps, 대시보드까지 전 과정을 주도한 경험이 있습니다. 새로운 기술을 빠르게 익히고 현업에 적용하는 것을 즐깁니다."
+
+ds: "데이터 분석과 통계적 사고를 기반으로 비즈니스 문제를 해결하는 Data Scientist입니다. LTV 예측 모델링, 인과 추론(앱 크래시 영향 분석), A/B 테스트 등 데이터 기반 의사결정 지원 경험이 풍부하며, Python/SQL을 활용한 분석 파이프라인 설계와 Streamlit 대시보드 개발에 강점이 있습니다."
+
+ml: "모델 개발부터 프로덕션 배포까지 MLOps 전 과정을 경험한 ML Engineer입니다. Databricks, MLflow, AWS SageMaker를 활용한 ML 파이프라인 구축 및 운영 경험이 있으며, LLM 서비스 통합과 강화학습 에이전트 개발 등 다양한 ML 프로덕트를 직접 설계하고 배포했습니다."
+
+llm: "LLM 기반 서비스 설계와 RAG 시스템 개발에 깊은 경험을 가진 AI Engineer입니다. LangChain, OpenSearch, FAISS를 활용한 RAG 파이프라인을 라이브 게임 서비스에 적용했으며, LangSmith를 통한 LLM 평가/모니터링 체계를 구축했습니다. 생성형 AI 기술을 실제 프로덕트에 통합하는 것을 전문으로 합니다."

@@ -1,0 +1,38 @@
+{% assign target_tags = include.target_tags %}
+<section class="resume-section">
+  <h2>경력</h2>
+  {% for job in site.data.resume.experience %}
+  {% assign has_bullets = false %}
+  {% for bullet in job.bullets %}
+    {% if target_tags == nil or target_tags == empty %}
+      {% assign has_bullets = true %}
+    {% else %}
+      {% for tag in bullet.tags %}
+        {% if target_tags contains tag %}{% assign has_bullets = true %}{% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+  {% if has_bullets %}
+  <div class="exp-entry">
+    <div class="exp-date">{{ job.period | replace: " – ", "<br>–<br>" }}</div>
+    <div class="exp-content">
+      <h3>{{ job.company }}</h3>
+      <p class="exp-role">{{ job.role }}</p>
+      <ul>
+      {% for bullet in job.bullets %}
+        {% if target_tags == nil or target_tags == empty %}
+          <li>{{ bullet.text }}</li>
+        {% else %}
+          {% assign matched = false %}
+          {% for tag in bullet.tags %}
+            {% if target_tags contains tag %}{% assign matched = true %}{% endif %}
+          {% endfor %}
+          {% if matched %}<li>{{ bullet.text }}</li>{% endif %}
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</section>

@@ -1,0 +1,19 @@
+- category: ML / Data Science
+  tags: [ml, ds, statistics]
+  items: [Python, Pandas, NumPy, Scikit-learn, XGBoost, PyTorch, SQL, Statsmodels]
+
+- category: LLM / GenAI
+  tags: [llm, genai, rag]
+  items: [LangChain, RAG, OpenAI API, FAISS, OpenSearch, LangSmith, Prompt Engineering]
+
+- category: MLOps
+  tags: [mlops, engineering]
+  items: [MLflow, Databricks, AWS SageMaker, Airflow, Docker]
+
+- category: Visualization / Dashboard
+  tags: [ds, engineering]
+  items: [Plotly, Dash, Streamlit]
+
+- category: Infra / Tools
+  tags: [engineering]
+  items: [AWS (Lambda, S3, SageMaker), Git, Slack API, Google Sheets API, Notion]

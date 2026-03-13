@@ -1,0 +1,9 @@
+{% assign key = include.summary_key | default: "default" %}
+{% assign summaries = site.data.resume.summaries %}
+{% assign text = summaries[key] %}
+{% if text %}
+<section class="resume-section">
+  <h2>요약</h2>
+  <p class="summary-text">{{ text }}</p>
+</section>
+{% endif %}

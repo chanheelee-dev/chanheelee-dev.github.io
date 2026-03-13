@@ -1,0 +1,21 @@
+{% assign meta = site.data.resume.meta %}
+<div class="resume-header">
+  <div class="header-left">
+    <h1>{{ meta.name_ko }} <span class="name-en">{{ meta.name_en }}</span></h1>
+    <p class="header-title">{{ meta.title }}</p>
+  </div>
+  <div class="header-right">
+    {% if meta.email != "" %}
+    <div><a href="mailto:{{ meta.email }}">{{ meta.email }}</a></div>
+    {% endif %}
+    {% if meta.github %}
+    <div><a href="{{ meta.github }}" target="_blank">GitHub</a></div>
+    {% endif %}
+    {% if meta.medium %}
+    <div><a href="{{ meta.medium }}" target="_blank">Medium</a></div>
+    {% endif %}
+  </div>
+</div>
+<div class="pdf-btn-row no-print">
+  <button onclick="window.print()">PDF로 저장</button>
+</div>

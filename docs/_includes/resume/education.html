@@ -1,0 +1,12 @@
+<section class="resume-section">
+  <h2>교육</h2>
+  {% for edu in site.data.resume.education %}
+  <div class="exp-entry">
+    <div class="exp-date">{{ edu.period }}</div>
+    <div class="exp-content">
+      <h3>{{ edu.school }}</h3>
+      <p class="exp-role">{{ edu.degree }} · {{ edu.major }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</section>

@@ -1,0 +1,29 @@
+{% assign target_tags = include.target_tags %}
+<section class="resume-section">
+  <h2>프로젝트</h2>
+  <ul class="project-list">
+  {% for proj in site.data.resume.projects %}
+    {% assign show = false %}
+    {% if target_tags == nil or target_tags == empty %}
+      {% assign show = true %}
+    {% else %}
+      {% for tag in proj.tags %}
+        {% if target_tags contains tag %}{% assign show = true %}{% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if show %}
+    <li class="project-item">
+      <div class="project-header">
+        {% if proj.url != "" %}
+        <a href="{{ proj.url }}" class="project-title">{{ proj.title }}</a>
+        {% else %}
+        <span class="project-title">{{ proj.title }}</span>
+        {% endif %}
+        <span class="project-period">{{ proj.period }}</span>
+      </div>
+      <p class="project-summary">{{ proj.summary }}</p>
+    </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</section>

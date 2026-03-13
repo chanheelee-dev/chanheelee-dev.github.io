@@ -15,6 +15,10 @@ Data Scientist / ML Engineer `이찬희`입니다.
 - 단순히 하나의 문제를 해결하는 것에 그치지 않고, 지속가능한 솔루션으로 만들기.
 - 솔루션에 기능을 개선하거나 추가하면서 범위를 넓혀나가기.
 
+<p style="margin: 20px 0 8px;">
+  <a href="./resume.md" style="display:inline-block; padding:7px 16px; background:#2563eb; color:white; border-radius:4px; text-decoration:none; font-weight:600; font-size:0.88rem; margin-right:8px;">📄 이력서 전체</a><a href="./resume-ds.md" style="display:inline-block; padding:7px 16px; background:#f0f9ff; color:#1e40af; border:1px solid #bfdbfe; border-radius:4px; text-decoration:none; font-weight:600; font-size:0.88rem; margin-right:8px;">Data Scientist용</a><a href="./resume-ml.md" style="display:inline-block; padding:7px 16px; background:#f0f9ff; color:#1e40af; border:1px solid #bfdbfe; border-radius:4px; text-decoration:none; font-weight:600; font-size:0.88rem;">ML Engineer용</a>
+</p>
+
 ## 💼 Career
 
 ### Devsisters (2021-01 ~ 2025-11)
