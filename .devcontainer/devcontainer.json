@@ -1,0 +1,38 @@
+{
+  "name": "Ruby Jekyll devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rebornix.Ruby",
+        "castwide.solargraph",
+        "jpoissonnier.vscode-styled-components",
+        "samverschueren.lintly",
+        "davidanson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens"
+      ],
+      "settings": {
+        "ruby.interpreter.commandPath": "/usr/local/bin/ruby",
+        "ruby.lint": {
+          "rubocop": true
+        },
+        "files.exclude": {
+          "**/.bundle": true,
+          "**/vendor/bundle": true
+        }
+      }
+    }
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "forwardPorts": [4000],
+  "postCreateCommand": "cd docs && bundle install",
+  "remoteUser": "vscode"
+}
