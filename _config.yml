@@ -9,3 +9,13 @@ defaults:
 
 kramdown:
   math_engine: mathjax
+
+exclude:
+  - README.md
+  - DEV.md
+  - netlify.toml
+  - specs/
+  - plans/
+  - .worktrees/
+  - Gemfile
+  - Gemfile.lock
