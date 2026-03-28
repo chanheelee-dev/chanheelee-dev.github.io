@@ -1,5 +1,6 @@
 theme: jekyll-theme-primer
 title: Chanhee's Dev Blog
+repository: chanheelee-dev/chanheelee-dev.github.io
 
 defaults:
   - scope:
