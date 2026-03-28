@@ -41,6 +41,31 @@ GitHub Pages를 로컬에서 미리보기 위한 설정.
 - `docs/_config.yml`: Jekyll 설정 (마크다운 엔진, 수식 렌더링 등)
 - `docs/_includes/head-custom.html`: MathJax 스크립트 (LaTeX 수식 렌더링용)
 
+## 브랜치 Preview (Netlify)
+
+### Netlify CLI로 빌드 로그 확인
+
+터미널에서 Netlify 배포 상태와 로그를 확인할 수 있다.
+
+#### 설치
+
+```bash
+npm install -g netlify-cli
+```
+
+#### 초기 연결 (최초 1회)
+
+```bash
+netlify login       # 브라우저에서 인증
+netlify link        # 이 레포를 Netlify 사이트와 연결
+```
+
+#### 로그 확인
+
+```bash
+netlify deploys     # 최근 배포 목록 확인
+```
+
 ## 블로그 채널 전략
 
 여기 github 블로그와 medium 블로그, 각각 어떤 글이 어울릴지 고민해본다.
