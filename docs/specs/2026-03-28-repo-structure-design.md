@@ -99,3 +99,4 @@ exclude:
 - `memoir_devsisters_00.png` 이미지는 `content/essays/` 로 함께 이동
 - 파일명에서 `proj_` prefix 제거 (폴더로 맥락이 충분)
 - 기존 URL(`/proj_ltv` 등)은 변경됨 — 외부 링크가 없으므로 허용
+- `DEV.md`의 디렉토리 구조 섹션을 새 구조에 맞게 업데이트
