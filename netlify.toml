@@ -1,0 +1,6 @@
+[build]
+  command = "bundle exec jekyll build"
+  publish = "_site"
+
+[context.production]
+  ignore = "exit 0"
