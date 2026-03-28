@@ -9,7 +9,6 @@
 ## 로컬 개발 서버 실행
 
 ```bash
-cd docs
 bundle install
 bundle exec jekyll serve
 ```
@@ -20,25 +19,28 @@ bundle exec jekyll serve
 
 ```
 .
-├── DEV.md              # 이 파일
-├── README.md           # 프로젝트 소개
+├── _config.yml         # Jekyll 설정
+├── Gemfile             # Ruby 의존성
 ├── netlify.toml        # Netlify 빌드 설정
-└── docs/               # Jekyll 사이트 루트
-    ├── _config.yml     # Jekyll 설정
-    ├── _includes/      # 공통 HTML 조각
-    ├── _site/          # 빌드 결과물 (git 무시)
-    ├── Gemfile         # Ruby 의존성
-    └── *.md            # 블로그 포스트
+├── .github/workflows/  # GitHub Actions 배포
+├── README.md           # 방문자용 소개
+├── DEV.md              # 이 파일
+├── content/
+│   ├── essays/         # 에세이 → URL: /essays/:name
+│   └── projects/       # 프로젝트 → URL: /projects/:name
+├── docs/
+│   ├── specs/          # 설계 문서
+│   └── plans/          # 구현 계획
+└── _site/              # 빌드 결과물 (gitignored)
 ```
 
 ## 빌드
 
 ```bash
-cd docs
 bundle exec jekyll build
 ```
 
-빌드 결과물은 `docs/_site/`에 생성된다.
+빌드 결과물은 `_site/`에 생성된다.
 
 ## 브랜치 Preview (Netlify)
 
@@ -74,7 +76,7 @@ netlify logs:deploy
 ### Fallback: 로컬 터널 (Netlify 미작동 시)
 
 ```bash
-cd docs && bundle exec jekyll serve
+bundle exec jekyll serve
 ngrok http 4000
 ```
 
