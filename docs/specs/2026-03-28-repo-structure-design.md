@@ -39,6 +39,7 @@ repo root
 
 | 현재 경로 | 이동 경로 |
 |-----------|-----------|
+| `index.md` | `content/index.md` |
 | `memoir_devsisters.md` | `content/essays/memoir_devsisters.md` |
 | `proj_ltv.md` | `content/projects/ltv.md` |
 | `proj_ltv_stg_1.md` | `content/projects/ltv_stg_1.md` |
@@ -70,6 +71,10 @@ defaults:
       path: "content/projects"
     values:
       permalink: /projects/:basename
+  - scope:
+      path: "content/index.md"
+    values:
+      permalink: /
 ```
 
 ### exclude 업데이트
