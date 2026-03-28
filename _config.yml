@@ -1,0 +1,32 @@
+theme: jekyll-theme-primer
+title: Chanhee's Dev Blog
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: "content/essays"
+    values:
+      permalink: /essays/:basename
+  - scope:
+      path: "content/projects"
+    values:
+      permalink: /projects/:basename
+  - scope:
+      path: "content/index.md"
+    values:
+      permalink: /
+
+kramdown:
+  math_engine: mathjax
+
+exclude:
+  - README.md
+  - DEV.md
+  - netlify.toml
+  - docs/
+  - .worktrees/
+  - Gemfile
+  - Gemfile.lock
