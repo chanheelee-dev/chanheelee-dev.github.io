@@ -1,10 +1,17 @@
 # _plugins/fix_baseurl.rb
-# jekyll-github-metadata (dep of jekyll-theme-primer) overrides site.baseurl
-# with the GitHub Actions Pages staging path ("/pages/<owner>") even when
-# baseurl is explicitly set to "" in _config.yml.
-# This plugin re-registers on the same hook (:site, :after_reset) and runs
-# after gem plugins, restoring the correct value from _config.yml.
+#
+# Problem: jekyll-github-metadata (a transitive dependency of jekyll-theme-primer)
+# hooks into :site, :after_reset and sets site.baseurl to the GitHub Actions Pages
+# staging path (e.g. "/pages/chanheelee-dev"), overriding the value in _config.yml.
+# This breaks jekyll-relative-links, which prepends site.baseurl to all page links.
+#
+# Fix: Register the same :site, :after_reset hook here and re-apply the _config.yml
+# value. Jekyll fires hooks in registration order. Because Bundler loads gem plugins
+# before local _plugins/ files, this hook is registered last and runs last, winning
+# over jekyll-github-metadata's override.
+#
+# Safe on local builds: site.baseurl is already "" from _config.yml, so the
+# assignment is idempotent.
 Jekyll::Hooks.register :site, :after_reset do |site|
-  configured = site.config["baseurl"]
-  site.config["baseurl"] = configured.nil? ? "" : configured
+  site.config["baseurl"] = site.config["baseurl"] || ""
 end
