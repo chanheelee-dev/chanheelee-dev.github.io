@@ -2,7 +2,9 @@ name: Deploy Jekyll to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - 'preview/*'
   workflow_dispatch:
 
 permissions:
@@ -27,9 +29,11 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-pages-artifact@v3
 
   deploy:
+    if: ${{ github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
