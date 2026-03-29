@@ -1,5 +1,7 @@
 theme: jekyll-theme-primer
 title: Chanhee's Dev Blog
+url: "https://chanheelee-dev.github.io"
+baseurl: ""
 repository: chanheelee-dev/chanheelee-dev.github.io
 
 defaults:
