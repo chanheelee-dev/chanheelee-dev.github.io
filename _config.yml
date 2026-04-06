@@ -39,3 +39,4 @@ exclude:
   - .worktrees/
   - Gemfile
   - Gemfile.lock
+  - code/
