@@ -21,6 +21,10 @@ defaults:
       path: "content/index.md"
     values:
       permalink: /
+  - scope:
+      path: "apps"
+    values:
+      layout: null
 
 plugins:
   - jekyll-feed
