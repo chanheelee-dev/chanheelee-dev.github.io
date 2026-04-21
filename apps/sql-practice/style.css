@@ -1,0 +1,215 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #656d76;
+  --border: #d0d7de;
+  --card: #f6f8fa;
+  --accent: #0969da;
+  --accent-fg: #ffffff;
+  --danger: #cf222e;
+  --success: #1a7f37;
+  --code-bg: #f6f8fa;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --card: #161b22;
+    --accent: #58a6ff;
+    --accent-fg: #0d1117;
+    --danger: #f85149;
+    --success: #3fb950;
+    --code-bg: #161b22;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2rem 1rem 4rem;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+.app-header,
+main,
+.app-footer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.app-header {
+  margin-bottom: 1.5rem;
+}
+
+.app-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.75rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.home-link a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.home-link a:hover { text-decoration: underline; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.status {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.status.ready { color: var(--success); }
+.status.error { color: var(--danger); }
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+  flex-wrap: wrap;
+}
+
+.form-row label {
+  min-width: 110px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.form-row input[type="text"],
+.form-row input[type="file"] {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.4rem 0.6rem;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+textarea#query {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background: var(--code-bg);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+button {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+button:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+#download-csv-btn {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.actions { justify-content: flex-start; }
+
+.msg { font-size: 0.85rem; color: var(--muted); }
+.msg.error { color: var(--danger); }
+.msg.success { color: var(--success); }
+
+.table-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.table-list li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
+}
+.table-list li:last-child { border-bottom: none; }
+.table-list .tname { font-weight: 600; color: var(--accent); }
+.table-list .tcols { color: var(--muted); font-size: 0.85rem; }
+
+.result-table {
+  overflow-x: auto;
+  margin-top: 0.75rem;
+  max-height: 480px;
+  overflow-y: auto;
+}
+.result-table table {
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  width: 100%;
+}
+.result-table th, .result-table td {
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.result-table th {
+  background: var(--card);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.result-table tr:nth-child(even) td { background: rgba(127, 127, 127, 0.04); }
+
+.app-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.app-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.app-footer a:hover { text-decoration: underline; }
+
+details summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}

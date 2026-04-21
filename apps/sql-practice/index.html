@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQL Practice — 브라우저에서 SQLite 연습</title>
+  <meta name="description" content="CSV를 업로드해 브라우저 내 SQLite(WASM)에 테이블로 올리고 SQL 쿼리를 실행합니다. 데이터는 서버로 전송되지 않습니다.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>SQL Practice</h1>
+    <p class="subtitle">
+      CSV를 업로드해 브라우저 안 SQLite에 테이블로 만들고 SQL을 실행합니다.
+      <strong>데이터는 서버로 전송되지 않으며</strong> 페이지를 새로고침하면 사라집니다.
+    </p>
+    <p class="home-link"><a href="/apps/">← 앱 목록</a></p>
+  </header>
+
+  <main>
+    <section id="status-section" class="card status">
+      <span id="status">SQLite(WASM) 로딩 중…</span>
+    </section>
+
+    <section class="card">
+      <h2>1. CSV 업로드 → 테이블 생성</h2>
+      <div class="form-row">
+        <label for="csv-file">CSV 파일</label>
+        <input type="file" id="csv-file" accept=".csv,text/csv">
+      </div>
+      <div class="form-row">
+        <label for="table-name">테이블 이름</label>
+        <input type="text" id="table-name" placeholder="예: sales" autocomplete="off">
+      </div>
+      <div class="form-row actions">
+        <button id="create-table-btn" type="button" disabled>테이블 생성</button>
+        <span id="create-msg" class="msg"></span>
+      </div>
+      <details id="preview-wrap" hidden>
+        <summary>업로드한 CSV 미리보기 (상위 10행)</summary>
+        <div id="csv-preview" class="result-table"></div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>2. 테이블 목록</h2>
+      <div id="table-list" class="table-list">아직 생성된 테이블이 없습니다.</div>
+    </section>
+
+    <section class="card">
+      <h2>3. SQL 쿼리 실행</h2>
+      <textarea id="query" rows="6" spellcheck="false" placeholder="SELECT * FROM your_table LIMIT 10;"></textarea>
+      <div class="form-row actions">
+        <button id="run-query-btn" type="button" disabled>쿼리 실행</button>
+        <button id="download-csv-btn" type="button" disabled>결과 CSV 다운로드</button>
+        <span id="query-msg" class="msg"></span>
+      </div>
+      <div id="result" class="result-table"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>
+      Powered by <a href="https://github.com/sql-js/sql.js" target="_blank" rel="noopener">sql.js</a> ·
+      <a href="https://github.com/chanheelee-dev/chanheelee-dev.github.io" target="_blank" rel="noopener">소스 코드</a>
+    </p>
+  </footer>
+
+  <script src="vendor/papaparse.min.js"></script>
+  <script src="vendor/sql-wasm.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
