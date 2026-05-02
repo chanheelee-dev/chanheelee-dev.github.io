@@ -8,12 +8,13 @@
 현 블로그 레포에 통합하기 위해 GitHub Pages 정적 호스팅이 가능한 클라이언트 사이드 앱으로 포팅했다.
 
 ## URL
-- 배포: <https://chanheelee-dev.github.io/apps/sql-practice/>
-- 앱 목록: <https://chanheelee-dev.github.io/apps/>
+
+-   배포: <https://chanheelee-dev.github.io/apps/sql-practice/>
+-   앱 목록: <https://chanheelee-dev.github.io/apps/>
 
 ## 파일 구조
 
-```
+```text
 sql-practice/
   index.html        앱 셸 (vendor 스크립트 로드 + DOM 구조)
   style.css         라이트/다크 테마 스타일
@@ -26,19 +27,19 @@ sql-practice/
 
 ## 아키텍처 메모
 
-- **엔진 부트스트랩**: `initSqlJs({ locateFile: () => 'vendor/sql-wasm.wasm' })`로
+-   **엔진 부트스트랩**: `initSqlJs({ locateFile: () => 'vendor/sql-wasm.wasm' })`로
   상대 경로의 wasm을 로드한다. GitHub Pages 기본 도메인과 커스텀 도메인 모두에서
   동작하도록 절대 경로 대신 상대 경로를 사용한다.
-- **DB 수명**: 단일 인메모리 `SQL.Database()` 인스턴스. 페이지 세션을 넘어가지
+-   **DB 수명**: 단일 인메모리 `SQL.Database()` 인스턴스. 페이지 세션을 넘어가지
   않는다 — 탭을 닫거나 새로고침하면 모든 데이터가 사라진다. 파일/IndexedDB 등
   어디에도 저장하지 않는다.
-- **타입 추론**: CSV 컬럼마다 값을 스캔해 정수→`INTEGER`, 실수→`REAL`, 그 외
+-   **타입 추론**: CSV 컬럼마다 값을 스캔해 정수→`INTEGER`, 실수→`REAL`, 그 외
   `TEXT`. 빈 값은 `NULL`로 삽입.
-- **식별자 인용**: 헤더에 공백/특수문자가 있어도 `"..."`로 인용해 그대로 사용.
+-   **식별자 인용**: 헤더에 공백/특수문자가 있어도 `"..."`로 인용해 그대로 사용.
   중복 헤더는 `_1`, `_2` 접미사로 구분.
-- **결과 표시 한도**: 쿼리 결과는 DOM 비용 때문에 최대 100행만 렌더한다.
+-   **결과 표시 한도**: 쿼리 결과는 DOM 비용 때문에 최대 100행만 렌더한다.
   "결과 CSV 다운로드" 버튼은 **전체 행**을 내려받는다.
-- **에러 처리**: 파싱/쿼리 실패 메시지는 각 섹션 하단 `.msg.error`에 표시.
+-   **에러 처리**: 파싱/쿼리 실패 메시지는 각 섹션 하단 `.msg.error`에 표시.
   `INSERT`는 트랜잭션으로 묶고 실패 시 `ROLLBACK`.
 
 ## 로컬 확인
@@ -59,13 +60,14 @@ python3 -m http.server --directory apps/sql-practice 8000
 ```
 
 ### 점검 체크리스트
-- 상단 상태 배너가 "SQLite(WASM) 준비 완료"로 바뀐다.
-- CSV 업로드 시 "CSV 파싱 완료: N행 · M열" 메시지 + 미리보기 10행.
-- "테이블 생성" 클릭 후 테이블 목록에 행 수/스키마가 뜬다.
-- 기본 자동 채움 쿼리(`SELECT * FROM "<table>" LIMIT 10;`) 실행 → 결과 표.
-- "결과 CSV 다운로드" → 전체 행이 담긴 `query_result.csv` 저장.
-- Devtools Network 탭에서 외부 호스트 요청이 없고 vendor 파일만 200으로 로드.
-- 모바일 뷰포트에서 결과 테이블이 가로 스크롤된다.
+
+-   상단 상태 배너가 "SQLite(WASM) 준비 완료"로 바뀐다.
+-   CSV 업로드 시 "CSV 파싱 완료: N행 · M열" 메시지 + 미리보기 10행.
+-   "테이블 생성" 클릭 후 테이블 목록에 행 수/스키마가 뜬다.
+-   기본 자동 채움 쿼리(`SELECT * FROM "<table>" LIMIT 10;`) 실행 → 결과 표.
+-   "결과 CSV 다운로드" → 전체 행이 담긴 `query_result.csv` 저장.
+-   Devtools Network 탭에서 외부 호스트 요청이 없고 vendor 파일만 200으로 로드.
+-   모바일 뷰포트에서 결과 테이블이 가로 스크롤된다.
 
 ## vendor 라이브러리 갱신
 
@@ -99,7 +101,8 @@ rm papaparse.tgz
 | 결과 다운로드 | `st.download_button` | Blob + `<a download>` |
 
 ## 관련
-- 이슈: [#5](https://github.com/chanheelee-dev/chanheelee-dev.github.io/issues/5)
-- 선행 설정 PR: [#8](https://github.com/chanheelee-dev/chanheelee-dev.github.io/pull/8)
+
+-   이슈: [#5](https://github.com/chanheelee-dev/chanheelee-dev.github.io/issues/5)
+-   선행 설정 PR: [#8](https://github.com/chanheelee-dev/chanheelee-dev.github.io/pull/8)
   (`apps` scope에 `layout: null` 지정)
-- 상위 디렉토리 규칙: [`../README.md`](../README.md)
+-   상위 디렉토리 규칙: [`../README.md`](../README.md)
