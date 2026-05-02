@@ -2,9 +2,10 @@
 
 ## 사전 요구사항
 
-- Ruby (>= 3.0)
-- Bundler
-- Netlify CLI (선택)
+-   Ruby (>= 3.0)
+-   Bundler
+-   pre-commit (`brew install pre-commit` 또는 `uv tool install pre-commit`)
+-   Netlify CLI (선택)
 
 ## 로컬 개발 서버 실행
 
@@ -17,7 +18,7 @@ bundle exec jekyll serve
 
 ## 디렉토리 구조
 
-```
+```bash
 .
 ├── _config.yml         # Jekyll 설정
 ├── Gemfile             # Ruby 의존성
@@ -28,9 +29,6 @@ bundle exec jekyll serve
 ├── content/
 │   ├── essays/         # 에세이 → URL: /essays/:name
 │   └── projects/       # 프로젝트 → URL: /projects/:name
-├── docs/
-│   ├── specs/          # 설계 문서
-│   └── plans/          # 구현 계획
 └── _site/              # 빌드 결과물 (gitignored)
 ```
 
@@ -41,6 +39,47 @@ bundle exec jekyll build
 ```
 
 빌드 결과물은 `_site/`에 생성된다.
+
+## Markdown 린팅
+
+마크다운 파일은 [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)로 검사한다.
+pre-commit hook이 commit 시점에 자동 실행한다 (격리된 Node 환경에서 동작).
+
+### 최초 셋업 (clone 후 1회)
+
+```bash
+pre-commit install
+```
+
+### 수동 실행
+
+```bash
+# 전체 마크다운 린팅
+pre-commit run --all-files
+
+# 변경된 파일만 (commit 직전 자동 실행되는 것과 동일)
+pre-commit run markdownlint-cli2
+```
+
+자동 수정(`--fix`)을 쓰려면 markdownlint-cli2 자체도 설치해야 한다 (선택):
+
+```bash
+brew install markdownlint-cli2
+markdownlint-cli2 --fix "**/*.md"
+```
+
+### 룰 설정
+
+`.markdownlint-cli2.jsonc`에서 관리한다. 들여쓰기는 [Google docguide 스타일](https://google.github.io/styleguide/docguide/style.html) 적용
+(unordered list `-` 뒤 3칸, ordered list `1.` 뒤 2칸, nested 4칸).
+
+주요 비활성/완화 항목:
+
+-   `MD013` (line-length): 200자로 완화. 코드 블록·테이블은 검사 제외
+-   `MD025` (single-h1): frontmatter title + 본문 H1 사용을 위해 OFF
+-   `MD060` (table-column-style): 한글 폭 계산 부정확으로 OFF
+
+룰 추가/조정은 [markdownlint 룰 문서](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md) 참고.
 
 ## 브랜치 Preview (Netlify)
 

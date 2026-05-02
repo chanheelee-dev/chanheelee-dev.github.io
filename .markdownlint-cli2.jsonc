@@ -1,0 +1,42 @@
+{
+  // 기본 룰 전체 ON, 한국어 블로그 + Google docguide 스타일에 맞춰 일부 조정.
+  // 룰 ID 레퍼런스: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+  // Google 스타일: https://google.github.io/styleguide/docguide/style.html
+  "config": {
+    "default": true,
+
+    // line-length: 80자는 한글 prose 스타일에 빡빡함. 200자로 완화하고
+    // 코드 블록/테이블은 검사 제외 (한글 인코딩 URL, 정렬 노이즈 등).
+    "MD013": {
+      "line_length": 200,
+      "code_blocks": false,
+      "tables": false
+    },
+
+    // single-h1: frontmatter title + 본문 # H1 같이 쓰는 페이지를 허용 → OFF
+    "MD025": false,
+
+    // table-column-style: 한글 폭 계산이 부정확해 노이즈 큼 → OFF
+    "MD060": false,
+
+    // ul-indent: nested list 들여쓰기 4칸 (Google 스타일).
+    "MD007": {
+      "indent": 4
+    },
+
+    // list-marker-space: Google 스타일.
+    //   "-   Item" (3칸), "1.  Item" (2칸).
+    "MD030": {
+      "ul_single": 3,
+      "ul_multi": 3,
+      "ol_single": 2,
+      "ol_multi": 2
+    }
+  },
+  "ignores": [
+    "_site/**",
+    ".jekyll-cache/**",
+    "node_modules/**",
+    ".worktrees/**"
+  ]
+}
