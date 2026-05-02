@@ -1,0 +1,5 @@
+repos:
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.22.1  # `pre-commit autoupdate`로 최신화
+    hooks:
+      - id: markdownlint-cli2
