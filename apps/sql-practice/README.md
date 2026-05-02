@@ -4,8 +4,8 @@
 테이블로 올리고 SQL 쿼리를 실행한다. **데이터는 서버로 전송되지 않는다** —
 업로드한 CSV와 생성된 DB는 모두 브라우저 메모리에 머물며 새로고침 시 사라진다.
 
-원본은 `code/apps/sqlite_streamlit/`의 Streamlit 앱(Python 서버 필요)이었고,
-이슈 #5에서 GitHub Pages 정적 호스팅이 가능한 클라이언트 사이드 앱으로 포팅했다.
+원본은 `github.com/chanheelee-dev/blog-with-code`의 Streamlit 앱이었고,
+현 블로그 레포에 통합하기 위해 GitHub Pages 정적 호스팅이 가능한 클라이언트 사이드 앱으로 포팅했다.
 
 ## URL
 - 배포: <https://chanheelee-dev.github.io/apps/sql-practice/>
